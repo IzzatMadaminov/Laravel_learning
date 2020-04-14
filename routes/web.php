@@ -13,16 +13,16 @@ use App\Mail\ContactFormMail;
 |
 */
 
-Route::view('/','home');
+//Route::view('/','home')->name('home');
 
-Route::get('contact', 'ContactFormController@create');
-Route::post('contact', 'ContactFormController@store');
-// Route::get('contact', function() {
-//     return new ContactFormMail();
-// });
+Route::get('contact', 'ContactFormController@create')->name('contact.create');
+Route::post('contact', 'ContactFormController@store')->name('contact.store');
 
-Route::get('about', function(){
-    return view('about');
-});  
+
+Route::view('about', 'about')->name('about');
 Route::resource('customers', 'CustomersController');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
