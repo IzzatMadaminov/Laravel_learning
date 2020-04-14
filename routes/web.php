@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Mail\ContactFormMail;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::view('/','home');
 
 Route::get('contact', 'ContactFormController@create');
+Route::post('contact', 'ContactFormController@store');
+// Route::get('contact', function() {
+//     return new ContactFormMail();
+// });
 
 Route::get('about', function(){
     return view('about');
